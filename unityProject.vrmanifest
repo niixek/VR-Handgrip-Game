@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.vrhandgripgame.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "D:\\Users\\kchen\\Documents\\GitHub\\VR-Handgrip-Game\\VR-Handgrip-Game\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "VR Handgrip Game [Testing]"
+        }
+      }
+    }
+  ]
+}
