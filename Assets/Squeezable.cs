@@ -8,6 +8,7 @@ public class Squeezable : MonoBehaviour
 
     private void OnMouseDown()
     {
+        Debug.Log("Clicked");
         Instantiate(destroyedVersion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
