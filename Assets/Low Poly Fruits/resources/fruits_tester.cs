@@ -10,9 +10,10 @@ public class fruits_tester : MonoBehaviour {
 	{
 		
 	}
-	
-	// Update is called once per frame
-	void Update () 
+
+    // Update is called once per frame
+    [System.Obsolete]
+    void Update () 
 	{
 		
 		fruits[0].transform.RotateAround (Vector3.up, Time.deltaTime);
