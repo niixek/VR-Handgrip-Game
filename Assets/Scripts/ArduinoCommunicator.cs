@@ -138,7 +138,7 @@ public static class ArduinoCommunicator
                         //read
                         string rawInput = stream.ReadLine();
                         forces = ConvertInputToForceData(rawInput);
-                        Debug.Log("Left force: " + forces[0] + ", Right force: " + forces[1]);
+                        //Debug.Log("Left force: " + forces[0] + ", Right force: " + forces[1]);
 
                         _GlobalVariables.isReadingArduinoData = true;
                     }
