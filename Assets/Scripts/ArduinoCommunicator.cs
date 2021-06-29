@@ -70,28 +70,11 @@ public static class ArduinoCommunicator
             {
                 Debug.Log("Testing Windows");
 
-                string[] portNames = SerialPort.GetPortNames();
-                Debug.Log("Number of serial ports (Windows): " + portNames.Length);
-                foreach (string currPortName in portNames)
-                {
-                    Debug.Log(currPortName);
-                    try {
-                        stream = new SerialPort(currPortName);
-                        stream.Open();
-                        _GlobalVariables.portFound = true;
-                        Debug.Log("Port " + currPortName + " in usage");
-                    } catch (Exception) {
-                        continue;
-                    }
-                }
-
-                //even though we technically should have checked this, 
-                //we need it to throw an uncaught exception, so we can check for Mac
-                //, because the other exceptions were all caught
                 stream = new SerialPort(winPortName);   //windows
                 stream.Open();
                 _GlobalVariables.portFound = true;
                 Debug.Log("Windows port");
+
             }
             catch (Exception) //Exception thrown when all Windows ports do not work
             {
@@ -134,7 +117,7 @@ public static class ArduinoCommunicator
                         //read
                         string rawInput = stream.ReadLine();
                         forces = ConvertInputToForceData(rawInput);
-                        //Debug.Log("Left force: " + forces[0] + ", Right force: " + forces[1]);
+                        Debug.Log("Left force: " + forces[0] + ", Right force: " + forces[1]);
 
                         _GlobalVariables.isReadingArduinoData = true;
                     }
