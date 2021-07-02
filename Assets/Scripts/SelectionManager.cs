@@ -6,6 +6,7 @@ public class SelectionManager : MonoBehaviour
 {
     [SerializeField] private Material highlightMaterial;
     [SerializeField] private Material defaultMaterial;
+    public GameObject selectedObject = null;
 
     private Transform _selection;
 
@@ -16,6 +17,7 @@ public class SelectionManager : MonoBehaviour
         {
             var selectionRenderer = _selection.GetComponent<Renderer>();
             selectionRenderer.material = defaultMaterial;
+            selectedObject = null;
             _selection = null;
         }
 
@@ -29,6 +31,8 @@ public class SelectionManager : MonoBehaviour
             if (selectionRenderer != null)
             {
                 selectionRenderer.material = highlightMaterial;
+                selectedObject = hit.collider.gameObject;
+                //Debug.Log(selectedObject);
             }
 
             _selection = selection;
