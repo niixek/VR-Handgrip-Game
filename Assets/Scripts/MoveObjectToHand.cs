@@ -16,8 +16,6 @@ public class MoveObjectToHand : MonoBehaviour
 
         forces[0] = _GlobalVariables.leftForce;
         forces[1] = _GlobalVariables.rightForce;
-        Vector3 leftHandPos = leftHand.transform.position;
-        Vector3 rightHandPos = rightHand.transform.position;
 
         GameObject selectedObject = selectionManager.selectedObject;
 
@@ -37,12 +35,14 @@ public class MoveObjectToHand : MonoBehaviour
 
             if (forces[0] > 15.0)
             {
-                selectedObject.transform.position = leftHandPos;
+                selectedObject.transform.parent = leftHand.transform;
+                selectedObject.transform.localPosition = new Vector3(0, -0.05f, 0.15f);
             }
 
             else if (forces[1] > 15.0)
             {
-                selectedObject.transform.position = rightHandPos;
+                selectedObject.transform.parent = rightHand.transform;
+                selectedObject.transform.localPosition = new Vector3(0, -0.05f, 0.15f);
             }
         }
         
