@@ -13,6 +13,12 @@ public static class _GlobalVariables
     public static bool portFound = false; //whether or not a serial port device has been detected
     public static bool killCommunicator = false; //whether or not to trigger a force kill of the other thread
     public static bool isReadingArduinoData = false; //whether or not the arduino is sending data at the current moment
+    public static bool leftHasObject = false;
+    public static GameObject leftObject = null;
+    public static bool rightHasObject = true;
+    public static GameObject rightObject = null;
+
+
 
     /// <summary>
     /// General information.

@@ -4109,7 +4109,7 @@ PrefabInstance:
     - target: {fileID: 3027315534536804876, guid: ebc81a19512b14643991ddedadd45a36,
         type: 3}
       propertyPath: gripSensitivity
-      value: 20
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3077385453443855997, guid: ebc81a19512b14643991ddedadd45a36,
         type: 3}
@@ -7023,6 +7023,7 @@ MonoBehaviour:
   rightHand: {fileID: 1626673099}
   selectionManager: {fileID: 1043924088}
   selectedObject: {fileID: 0}
+  gripSensitivity: 10
 --- !u!1001 &1069386500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7787,6 +7788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyedVersion: {fileID: 7975257029876356615, guid: a4136a57d7504004e87cb9a05ca6d9c2,
     type: 3}
+  strengthRequired: 50
 --- !u!64 &1184291175
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9103,7 +9105,7 @@ PrefabInstance:
     - target: {fileID: 7075740022987344057, guid: 9242c8e89f535bd41979d852970d3913,
         type: 3}
       propertyPath: gripSensitivity
-      value: 20
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9242c8e89f535bd41979d852970d3913, type: 3}

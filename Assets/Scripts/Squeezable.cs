@@ -5,6 +5,7 @@ using UnityEngine;
 public class Squeezable : MonoBehaviour
 {
     public GameObject destroyedVersion;
+    public float strengthRequired;
 
     private void OnMouseDown()
     {
@@ -22,7 +23,7 @@ public class Squeezable : MonoBehaviour
 
         //Debug.Log("Left force: " + forces[0] + ", Right force: " + forces[1]);
 
-        if (forces[0] > 30.0)
+        if (forces[0] > strengthRequired)
         {
             Instantiate(destroyedVersion, transform.position, transform.rotation);
             Destroy(gameObject);

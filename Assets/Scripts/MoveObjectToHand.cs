@@ -38,12 +38,35 @@ public class MoveObjectToHand : MonoBehaviour
             {
                 selectedObject.transform.parent = leftHand.transform;
                 selectedObject.transform.localPosition = new Vector3(0, -0.05f, 0.15f);
+                _GlobalVariables.leftHasObject = true;
+                if (selectedObject == _GlobalVariables.rightObject)
+                {
+                    _GlobalVariables.rightHasObject = false;
+                    _GlobalVariables.rightObject = null;
+                }
+                _GlobalVariables.leftObject = selectedObject;
+                if (_GlobalVariables.rightObject == null && !_GlobalVariables.rightHasObject)
+                {
+                    Debug.Log("Right works");
+                }
             }
 
             else if (forces[1] > gripSensitivity)
             {
                 selectedObject.transform.parent = rightHand.transform;
                 selectedObject.transform.localPosition = new Vector3(0, -0.05f, 0.15f);
+                _GlobalVariables.rightHasObject = true;
+                if (selectedObject == _GlobalVariables.leftObject)
+                {
+                    _GlobalVariables.leftHasObject = false;
+                    _GlobalVariables.leftObject = null;
+                }
+                _GlobalVariables.rightObject = selectedObject;
+                if (_GlobalVariables.leftObject == null && !_GlobalVariables.leftHasObject)
+                {
+                    Debug.Log("left works");
+                }
+
             }
         }
         
