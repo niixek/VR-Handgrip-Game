@@ -8,6 +8,7 @@ public class MoveObjectToHand : MonoBehaviour
     public GameObject rightHand;
     public SelectionManager selectionManager;
     public GameObject selectedObject = null;
+    public int gripSensitivity;
 
     // Update is called once per frame
     void Update()
@@ -33,13 +34,13 @@ public class MoveObjectToHand : MonoBehaviour
             }
             */
 
-            if (forces[0] > 15.0)
+            if (forces[0] > gripSensitivity)
             {
                 selectedObject.transform.parent = leftHand.transform;
                 selectedObject.transform.localPosition = new Vector3(0, -0.05f, 0.15f);
             }
 
-            else if (forces[1] > 15.0)
+            else if (forces[1] > gripSensitivity)
             {
                 selectedObject.transform.parent = rightHand.transform;
                 selectedObject.transform.localPosition = new Vector3(0, -0.05f, 0.15f);

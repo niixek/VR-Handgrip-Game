@@ -7,59 +7,35 @@ public class HandPresence : MonoBehaviour
 {
 
     public GameObject handPrefab;
-    public InputDeviceCharacteristics characteristics;
+    public int gripSensitivity;
 
-    private Animator handAnimator;
-    private InputDevice inputDevice;
-
-    void Start()
-    {
-        TryInitialize();
-    }
-
-    void TryInitialize()
-    {
-        List<InputDevice> devices = new List<InputDevice>();
-        InputDevices.GetDevicesWithCharacteristics(characteristics, devices);
-
-        if (devices.Count > 0)
-        {
-            inputDevice = devices[0];
-            handAnimator = handPrefab.GetComponent<Animator>();
-        }
-
-    }
+    public Animator handAnimator;
 
     void UpdateHandAnimation()
     {
-        if (inputDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
-        {
-            handAnimator.SetFloat("TriggerStrength", triggerValue);
-        }
-        else
-        {
-            handAnimator.SetFloat("TriggerStrength", 0);
-        }
+        float[] forces = new float[2];
 
-        if (inputDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
+        forces[0] = _GlobalVariables.leftForce;
+        forces[1] = _GlobalVariables.rightForce;
+
+        if (handPrefab.name == "LeftHand Variant" && forces[0] > 0)
         {
-            handAnimator.SetFloat("GripStrength", gripValue);
+            handAnimator.SetFloat("GripStrength", forces[0] / gripSensitivity);
+        }
+        else if (handPrefab.name == "RightHand Variant" && forces[1] > 0)
+        {
+            handAnimator.SetFloat("GripStrength", forces[1] / gripSensitivity);
         }
         else
         {
             handAnimator.SetFloat("GripStrength", 0);
         }
+
+
     }
 
     void Update()
     {
-        if (!inputDevice.isValid)
-        {
-            TryInitialize();
-        }
-        else
-        {
             UpdateHandAnimation();
-        }
     }
 }

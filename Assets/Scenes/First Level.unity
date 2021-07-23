@@ -1030,6 +1030,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 539615736}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &143097700 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -8868442185945304690, guid: ebc81a19512b14643991ddedadd45a36,
+    type: 3}
+  m_PrefabInstance: {fileID: 539615736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &147215074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3505299522626843525, guid: 7d72879ba54738d42887f83754ca3b26,
@@ -4093,7 +4099,17 @@ PrefabInstance:
     - target: {fileID: 3027315534536804876, guid: ebc81a19512b14643991ddedadd45a36,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3027315534536804876, guid: ebc81a19512b14643991ddedadd45a36,
+        type: 3}
+      propertyPath: handAnimator
+      value: 
+      objectReference: {fileID: 143097700}
+    - target: {fileID: 3027315534536804876, guid: ebc81a19512b14643991ddedadd45a36,
+        type: 3}
+      propertyPath: gripSensitivity
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3077385453443855997, guid: ebc81a19512b14643991ddedadd45a36,
         type: 3}
@@ -9077,7 +9093,17 @@ PrefabInstance:
     - target: {fileID: 7075740022987344057, guid: 9242c8e89f535bd41979d852970d3913,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075740022987344057, guid: 9242c8e89f535bd41979d852970d3913,
+        type: 3}
+      propertyPath: handAnimator
+      value: 
+      objectReference: {fileID: 1626673101}
+    - target: {fileID: 7075740022987344057, guid: 9242c8e89f535bd41979d852970d3913,
+        type: 3}
+      propertyPath: gripSensitivity
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9242c8e89f535bd41979d852970d3913, type: 3}
@@ -9984,6 +10010,12 @@ Transform:
 --- !u!1 &1626673099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1962982980801242919, guid: 9242c8e89f535bd41979d852970d3913,
+    type: 3}
+  m_PrefabInstance: {fileID: 1436749436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1626673101 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -862815131363577059, guid: 9242c8e89f535bd41979d852970d3913,
     type: 3}
   m_PrefabInstance: {fileID: 1436749436}
   m_PrefabAsset: {fileID: 0}
