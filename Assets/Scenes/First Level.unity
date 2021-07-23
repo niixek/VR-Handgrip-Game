@@ -7764,12 +7764,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184291172}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0dc44d6329fe8c546ba8728d79eb38ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedVersion: {fileID: 2209148285531446487, guid: b001cc0f02906af4a95902d2bbb843c3,
+  destroyedVersion: {fileID: 7975257029876356615, guid: a4136a57d7504004e87cb9a05ca6d9c2,
     type: 3}
 --- !u!64 &1184291175
 MeshCollider:
