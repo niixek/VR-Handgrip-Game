@@ -23,10 +23,37 @@ public class Squeezable : MonoBehaviour
 
         //Debug.Log("Left force: " + forces[0] + ", Right force: " + forces[1]);
 
+        /*
         if (forces[0] > strengthRequired)
         {
             Instantiate(destroyedVersion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
+        */
+
+        if (_GlobalVariables.leftHasObject)
+        {
+            if (_GlobalVariables.leftObject == gameObject)
+            {
+                if (forces[0] > strengthRequired)
+                {
+                    Instantiate(destroyedVersion, transform.position, transform.rotation);
+                    Destroy(gameObject);
+                }
+            }
+        }
+
+        if (_GlobalVariables.rightHasObject)
+        {
+            if (_GlobalVariables.rightObject == gameObject)
+            {
+                if (forces[1] > strengthRequired)
+                {
+                    Instantiate(destroyedVersion, transform.position, transform.rotation);
+                    Destroy(gameObject);
+                }
+            }
+        }
+
     }
 }

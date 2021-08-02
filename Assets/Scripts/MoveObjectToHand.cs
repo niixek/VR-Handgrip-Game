@@ -45,10 +45,14 @@ public class MoveObjectToHand : MonoBehaviour
                     _GlobalVariables.rightObject = null;
                 }
                 _GlobalVariables.leftObject = selectedObject;
+
+                
+                /*
                 if (_GlobalVariables.rightObject == null && !_GlobalVariables.rightHasObject)
                 {
                     Debug.Log("Right works");
                 }
+                */
             }
 
             else if (forces[1] > gripSensitivity)
@@ -62,10 +66,13 @@ public class MoveObjectToHand : MonoBehaviour
                     _GlobalVariables.leftObject = null;
                 }
                 _GlobalVariables.rightObject = selectedObject;
+
+                /*
                 if (_GlobalVariables.leftObject == null && !_GlobalVariables.leftHasObject)
                 {
                     Debug.Log("left works");
                 }
+                */
 
             }
         }

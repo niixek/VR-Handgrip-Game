@@ -15,7 +15,7 @@ public static class _GlobalVariables
     public static bool isReadingArduinoData = false; //whether or not the arduino is sending data at the current moment
     public static bool leftHasObject = false;
     public static GameObject leftObject = null;
-    public static bool rightHasObject = true;
+    public static bool rightHasObject = false;
     public static GameObject rightObject = null;
 
 
