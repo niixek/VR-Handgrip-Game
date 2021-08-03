@@ -39,6 +39,9 @@ public class Squeezable : MonoBehaviour
                 {
                     Instantiate(destroyedVersion, transform.position, transform.rotation);
                     Destroy(gameObject);
+                    _GlobalVariables.leftHasObject = false;
+                    _GlobalVariables.leftObject = null;
+
                 }
             }
         }
@@ -51,6 +54,8 @@ public class Squeezable : MonoBehaviour
                 {
                     Instantiate(destroyedVersion, transform.position, transform.rotation);
                     Destroy(gameObject);
+                    _GlobalVariables.rightHasObject = false;
+                    _GlobalVariables.rightObject = null;
                 }
             }
         }

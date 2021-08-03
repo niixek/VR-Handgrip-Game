@@ -7,7 +7,7 @@ public class MoveObjectToHand : MonoBehaviour
     public GameObject leftHand;
     public GameObject rightHand;
     public SelectionManager selectionManager;
-    public GameObject selectedObject = null;
+    public GameObject[] objOrigPos;
     public int gripSensitivity;
 
     // Update is called once per frame
@@ -36,6 +36,11 @@ public class MoveObjectToHand : MonoBehaviour
 
             if (forces[0] > gripSensitivity)
             {
+                if (_GlobalVariables.leftHasObject)
+                {
+                    _GlobalVariables.leftObject.transform.parent = null;
+                    _GlobalVariables.leftObject.transform.position = _GlobalVariables.leftObject.GetComponent<PositionHolder>().origPos;
+                }
                 selectedObject.transform.parent = leftHand.transform;
                 selectedObject.transform.localPosition = new Vector3(0, -0.05f, 0.15f);
                 _GlobalVariables.leftHasObject = true;
@@ -57,6 +62,11 @@ public class MoveObjectToHand : MonoBehaviour
 
             else if (forces[1] > gripSensitivity)
             {
+                if (_GlobalVariables.rightHasObject)
+                {
+                    _GlobalVariables.rightObject.transform.parent = null;
+                    _GlobalVariables.rightObject.transform.position = _GlobalVariables.rightObject.GetComponent<PositionHolder>().origPos;
+                }
                 selectedObject.transform.parent = rightHand.transform;
                 selectedObject.transform.localPosition = new Vector3(0, -0.05f, 0.15f);
                 _GlobalVariables.rightHasObject = true;
