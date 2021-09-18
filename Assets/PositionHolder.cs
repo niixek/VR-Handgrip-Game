@@ -5,4 +5,5 @@ using UnityEngine;
 public class PositionHolder : MonoBehaviour
 {
     public Vector3 origPos;
+    public Quaternion origRot;
 }
