@@ -18,7 +18,7 @@ public class HandPresence : MonoBehaviour
         forces[0] = _GlobalVariables.leftForce;
         forces[1] = _GlobalVariables.rightForce;
 
-        if (handPrefab.name == "LeftHand Variant" && forces[0] > 1)
+        if (handPrefab.name == "LeftHand Variant" && forces[0] > 2)
         {
             handAnimator.SetFloat("GripStrength", forces[0] / gripSensitivity);
         }
