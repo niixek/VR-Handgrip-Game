@@ -24,9 +24,9 @@ public class GripControllerHandler : MonoBehaviour
         {
             _GlobalVariables.killCommunicator = false;
             _GlobalVariables.keyboardActive = false;
-            Debug.Log("Create arduino input thread");
+            //Debug.Log("Create arduino input thread");
             Thread thread = new Thread(ArduinoCommunicator.BeginConnection);
-            Debug.Log("Start arduino input thread");
+            //Debug.Log("Start arduino input thread");
             thread.Start();
         }
     }
@@ -35,20 +35,21 @@ public class GripControllerHandler : MonoBehaviour
     void Update()
     {
         CheckAndStartCommunicator();
-
+        /*
         if (!_GlobalVariables.portFound)
         {           
             //if the port is not discovered, write message and listen for keyboard command
-            Debug.Log("Port not found");
+            //Debug.Log("Port not found");
         }
         else if (!_GlobalVariables.isReadingArduinoData)
         {   //if the port is found but left and right force are not being updated
-            Debug.Log("Port found, but data not read");
+            //Debug.Log("Port found, but data not read");
         }
         else
         {
            // Debug.Log("data being read");
         }
+        */
 
 
     }

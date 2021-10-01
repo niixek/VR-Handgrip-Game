@@ -25,7 +25,7 @@ public static class ArduinoCommunicator
     /// </summary>
     public static void BeginConnection()
     {
-        Debug.Log("Started ArduinoCommunicator");
+        //Debug.Log("Started ArduinoCommunicator");
 
         _GlobalVariables.communicatorThreadExists = true;
         try
@@ -45,7 +45,7 @@ public static class ArduinoCommunicator
             }
         }
 
-        Debug.Log("Port Connection Killed...");
+        //Debug.Log("Port Connection Killed...");
         _GlobalVariables.communicatorThreadExists = false;
         _GlobalVariables.portFound = false;
         _GlobalVariables.isReadingArduinoData = false;
@@ -57,7 +57,7 @@ public static class ArduinoCommunicator
     /// </summary>
     private static void DetectPlatform()
     {
-        Debug.Log("Detect Platform for port");
+        //Debug.Log("Detect Platform for port");
         while (!_GlobalVariables.portFound && !_GlobalVariables.killCommunicator)
         {
             if (ShouldEndThread())
@@ -68,7 +68,7 @@ public static class ArduinoCommunicator
             
             try
             {
-                Debug.Log("Testing Windows");
+                //Debug.Log("Testing Windows");
                 /*
                 string[] portNames = SerialPort.GetPortNames();
                 Debug.Log("Number of serial ports (Windows): " + portNames.Length);
@@ -92,24 +92,24 @@ public static class ArduinoCommunicator
                 stream = new SerialPort(winPortName);   //windows
                 stream.Open();
                 _GlobalVariables.portFound = true;
-                Debug.Log("Windows port");
+                //Debug.Log("Windows port");
             }
             
             
             catch (Exception) //Exception thrown when all Windows ports do not work
             {
-                Debug.Log("Testing Mac");
+                //Debug.Log("Testing Mac");
                 try
                 {
                     stream = new SerialPort(macPortName);   //mac
                     stream.Open();
                     _GlobalVariables.portFound = true;
-                    Debug.Log("Mac port");
+                    //Debug.Log("Mac port");
                 }
                 catch (Exception)
                 {
                     stream = null;  //keyboard
-                    Debug.Log("No port found");
+                    //Debug.Log("No port found");
                 }
             }
             
@@ -218,7 +218,7 @@ public static class ArduinoCommunicator
                 stream.Open();
             } catch (InvalidOperationException)
             {
-                Debug.Log("Tried to flush port when not open");
+                //Debug.Log("Tried to flush port when not open");
             }
         }
     }
@@ -237,7 +237,7 @@ public static class ArduinoCommunicator
                     return false;
                 }
             }
-            Debug.Log("Time to end the thread");
+            //Debug.Log("Time to end the thread");
             //if connection not re-established, kill thread
             return true;
         }

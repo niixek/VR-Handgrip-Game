@@ -14,7 +14,7 @@ public class MoveObjectToHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_GlobalVariables.leftForce);
+        //Debug.Log(_GlobalVariables.leftForce);
         float[] forces = new float[2];
 
         forces[0] = _GlobalVariables.leftForce;

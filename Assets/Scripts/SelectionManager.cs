@@ -13,12 +13,15 @@ public class SelectionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Debug.Log(_GlobalVariables.selectedObject);
         if (_selection != null)
         {
             var selectionRenderer = _selection.GetComponent<Renderer>();
             selectionRenderer.material = defaultMaterial;
             selectedObject = null;
             _selection = null;
+            _GlobalVariables.selectedObject = null;
         }
 
 
@@ -32,6 +35,7 @@ public class SelectionManager : MonoBehaviour
             {
                 selectionRenderer.material = highlightMaterial;
                 selectedObject = hit.collider.gameObject;
+                _GlobalVariables.selectedObject = selectedObject;
                 //Debug.Log(selectedObject);
             }
 

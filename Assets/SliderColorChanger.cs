@@ -10,8 +10,8 @@ public class SliderColorChanger : MonoBehaviour
     public int maxGrip = 100;
     public Image fill;
 
-    public Color maxHealthColor = Color.red;
-    public Color minHealthColor = Color.green;
+    public Color maxHealthColor = Color.green;
+    public Color minHealthColor = Color.red;
 
     private void Start()
     {
@@ -25,6 +25,6 @@ public class SliderColorChanger : MonoBehaviour
     void Update()
     {
         fill.color = Color.Lerp(minHealthColor, maxHealthColor, (float)slider.value / maxGrip);
-        Debug.Log(slider.value);
+        //Debug.Log(slider.value);
     }
 }

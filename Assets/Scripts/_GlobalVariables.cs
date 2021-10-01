@@ -17,6 +17,7 @@ public static class _GlobalVariables
     public static GameObject leftObject = null;
     public static bool rightHasObject = false;
     public static GameObject rightObject = null;
+    public static GameObject selectedObject = null;
 
 
 
