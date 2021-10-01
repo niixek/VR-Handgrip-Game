@@ -30,35 +30,54 @@ public class Squeezable : MonoBehaviour
             Destroy(gameObject);
         }
         */
-
-        if (_GlobalVariables.leftHasObject)
+        if (gameObject.GetComponent<Handedness>().twoHanded)
         {
-            if (_GlobalVariables.leftObject == gameObject)
+            if (_GlobalVariables.leftHasObject && _GlobalVariables.rightHasObject)
             {
-                if (forces[0] > strengthRequired)
+                if (_GlobalVariables.leftObject == gameObject && _GlobalVariables.rightObject == gameObject)
                 {
-                    Instantiate(destroyedVersion, transform.position, transform.rotation);
-                    Destroy(gameObject);
-                    _GlobalVariables.leftHasObject = false;
-                    _GlobalVariables.leftObject = null;
-
+                    if (forces[0] > strengthRequired && forces[1] > strengthRequired)
+                    {
+                        Instantiate(destroyedVersion, transform.position, transform.rotation);
+                        Destroy(gameObject);
+                        _GlobalVariables.leftHasObject = false;
+                        _GlobalVariables.leftObject = null;
+                        _GlobalVariables.rightHasObject = false;
+                        _GlobalVariables.rightObject = null;
+                    }
                 }
             }
         }
-
-        if (_GlobalVariables.rightHasObject)
+        else
         {
-            if (_GlobalVariables.rightObject == gameObject)
+            if (_GlobalVariables.leftHasObject)
             {
-                if (forces[1] > strengthRequired)
+                if (_GlobalVariables.leftObject == gameObject)
                 {
-                    Instantiate(destroyedVersion, transform.position, transform.rotation);
-                    Destroy(gameObject);
-                    _GlobalVariables.rightHasObject = false;
-                    _GlobalVariables.rightObject = null;
+                    if (forces[0] > strengthRequired)
+                    {
+                        Instantiate(destroyedVersion, transform.position, transform.rotation);
+                        Destroy(gameObject);
+                        _GlobalVariables.leftHasObject = false;
+                        _GlobalVariables.leftObject = null;
+
+                    }
+                }
+            }
+
+            if (_GlobalVariables.rightHasObject)
+            {
+                if (_GlobalVariables.rightObject == gameObject)
+                {
+                    if (forces[1] > strengthRequired)
+                    {
+                        Instantiate(destroyedVersion, transform.position, transform.rotation);
+                        Destroy(gameObject);
+                        _GlobalVariables.rightHasObject = false;
+                        _GlobalVariables.rightObject = null;
+                    }
                 }
             }
         }
-
     }
 }

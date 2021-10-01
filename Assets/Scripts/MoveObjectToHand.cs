@@ -43,8 +43,22 @@ public class MoveObjectToHand : MonoBehaviour
                 Destroy(gameObject);
             }
             */
+            if (selectedObject.GetComponent<Handedness>().twoHanded)
+            {
+                if (forces[0] >= selectedObject.GetComponent<FruitWeight>().weight && forces[1] >= selectedObject.GetComponent<FruitWeight>().weight)
+                {
+                    _GlobalVariables.leftHasObject = true;
+                    _GlobalVariables.rightHasObject = true;
 
-            if (!_GlobalVariables.leftHasObject && forces[0] >= selectedObject.GetComponent<FruitWeight>().weight)
+                    selectedObject.transform.parent = leftHand.transform;
+                    selectedObject.transform.localPosition = new Vector3(0, -0.15f, 0.15f);
+
+                    _GlobalVariables.leftObject = selectedObject;
+                    _GlobalVariables.rightObject = selectedObject;
+                }
+            }
+
+            else if (!_GlobalVariables.leftHasObject && forces[0] >= selectedObject.GetComponent<FruitWeight>().weight)
             {
                 /*
                 if (_GlobalVariables.leftHasObject)
