@@ -23,6 +23,7 @@ public class XROffsetGrabable : XRGrabInteractable
         initAttachLocalRot = attachTransform.localRotation;
     }
 
+    [System.Obsolete]
     protected override void OnSelectEntered(XRBaseInteractor interactor)
     {
         if(interactor is XRDirectInteractor)
