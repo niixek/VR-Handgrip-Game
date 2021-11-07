@@ -13,6 +13,8 @@ public class SliderColorChanger : MonoBehaviour
     public Color maxHealthColor = Color.green;
     public Color minHealthColor = Color.red;
 
+    public bool leftHand;
+
     private void Start()
     {
         slider = gameObject.GetComponent<Slider>();
@@ -24,7 +26,59 @@ public class SliderColorChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        slider.maxValue = getSqueezeMaxValue();
+        slider.minValue = getSqueezeMinValue();
+        if (leftHand)
+        {
+            if (_GlobalVariables.leftHasObject)
+            {
+                slider.value = _GlobalVariables.leftForce;
+            }
+            else
+            {
+                slider.value = 0;
+            }
+        }
+        else
+        {
+            if (_GlobalVariables.rightHasObject)
+            {
+                slider.value = _GlobalVariables.rightForce;
+            }
+            else
+            {
+                slider.value = 0;
+            }
+        }
+ 
         fill.color = Color.Lerp(minHealthColor, maxHealthColor, (float)slider.value / maxGrip);
         //Debug.Log(slider.value);
+    }
+
+    private float getSqueezeMaxValue()
+    {
+        if (_GlobalVariables.leftHasObject)
+        {
+            return _GlobalVariables.leftObject.GetComponent<Squeezable>().strengthRequired;
+        }
+        if (_GlobalVariables.rightHasObject)
+        {
+            return _GlobalVariables.rightObject.GetComponent<Squeezable>().strengthRequired;
+        }
+
+        return 100f;
+    }
+    private float getSqueezeMinValue()
+    {
+        if (_GlobalVariables.leftHasObject)
+        {
+            return _GlobalVariables.leftObject.GetComponent<FruitWeight>().weight;
+        }
+        if (_GlobalVariables.rightHasObject)
+        {
+            return _GlobalVariables.rightObject.GetComponent<FruitWeight>().weight;
+        }
+
+        return 0f;
     }
 }
