@@ -15,6 +15,11 @@ public class PulseTextIndependent : MonoBehaviour
         StartCoroutine(nameof(Pulse));
     }
 
+    private void OnEnable()
+    {
+        StartCoroutine(nameof(Pulse));
+    }
+
     private IEnumerator Pulse()
     {
         for (float i = 0f; i <= 1f; i += steps)

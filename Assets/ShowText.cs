@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class ShowText : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    public SelectionManager selectionManager;
+    public GameObject text;
+    public GameObject fruit;
 
     // Update is called once per frame
     void Update()
     {
-        
+        GameObject selectedObject = selectionManager.selectedObject;
+        if (selectedObject != null)
+        {
+            if (selectedObject == fruit)
+            {
+                text.SetActive(true);
+            }
+            else
+            {
+                text.SetActive(false);
+            }
+        }
+        else
+        {
+            text.SetActive(false);
+        }
     }
 }
