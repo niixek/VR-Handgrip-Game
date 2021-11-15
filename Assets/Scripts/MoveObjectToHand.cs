@@ -120,6 +120,7 @@ public class MoveObjectToHand : MonoBehaviour
                         _GlobalVariables.leftObject.transform.position = _GlobalVariables.leftObject.GetComponent<PositionHolder>().origPos;
                         _GlobalVariables.leftObject.transform.rotation = _GlobalVariables.leftObject.GetComponent<PositionHolder>().origRot;
                         _GlobalVariables.leftHasObject = false;
+                        _GlobalVariables.leftObject = null;
                     }
                 }
                 else if (_GlobalVariables.rightHasObject)
@@ -130,7 +131,34 @@ public class MoveObjectToHand : MonoBehaviour
                         _GlobalVariables.rightObject.transform.position = _GlobalVariables.rightObject.GetComponent<PositionHolder>().origPos;
                         _GlobalVariables.rightObject.transform.rotation = _GlobalVariables.rightObject.GetComponent<PositionHolder>().origRot;
                         _GlobalVariables.rightHasObject = false;
+                        _GlobalVariables.rightObject = null;
                     }
+                }
+            }
+        }
+        else
+        {
+            if (_GlobalVariables.leftHasObject)
+            {
+                //Debug.Log("left has object");
+                if (forces[0] < _GlobalVariables.leftObject.GetComponent<FruitWeight>().weight)
+                {
+                    _GlobalVariables.leftObject.transform.parent = null;
+                    _GlobalVariables.leftObject.transform.position = _GlobalVariables.leftObject.GetComponent<PositionHolder>().origPos;
+                    _GlobalVariables.leftObject.transform.rotation = _GlobalVariables.leftObject.GetComponent<PositionHolder>().origRot;
+                    _GlobalVariables.leftHasObject = false;
+                    _GlobalVariables.leftObject = null;
+                }
+            }
+            else if (_GlobalVariables.rightHasObject)
+            {
+                if (forces[1] < _GlobalVariables.rightObject.GetComponent<FruitWeight>().weight)
+                {
+                    _GlobalVariables.rightObject.transform.parent = null;
+                    _GlobalVariables.rightObject.transform.position = _GlobalVariables.rightObject.GetComponent<PositionHolder>().origPos;
+                    _GlobalVariables.rightObject.transform.rotation = _GlobalVariables.rightObject.GetComponent<PositionHolder>().origRot;
+                    _GlobalVariables.rightHasObject = false;
+                    _GlobalVariables.rightObject = null;
                 }
             }
         }

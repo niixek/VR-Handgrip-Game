@@ -14,7 +14,7 @@ public class SelectionManager : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(_GlobalVariables.selectedObject);
+        //Debug.Log(_GlobalVariables.selectedObject);
         if (_selection != null)
         {
             var selectionRenderer = _selection.GetComponent<Renderer>();

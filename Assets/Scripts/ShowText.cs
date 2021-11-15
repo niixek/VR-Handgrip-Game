@@ -13,6 +13,7 @@ public class ShowText : MonoBehaviour
     void Update()
     {
         GameObject selectedObject = selectionManager.selectedObject;
+        //Debug.Log(_GlobalVariables.leftObject);
         if (selectedObject != null)
         {
             if (selectedObject != _GlobalVariables.leftObject && selectedObject != _GlobalVariables.rightObject)
