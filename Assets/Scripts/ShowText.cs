@@ -15,14 +15,21 @@ public class ShowText : MonoBehaviour
         GameObject selectedObject = selectionManager.selectedObject;
         if (selectedObject != null)
         {
-            if (selectedObject == fruit)
+            if (selectedObject != _GlobalVariables.leftObject && selectedObject != _GlobalVariables.rightObject)
             {
-                text.SetActive(true);
+                if (selectedObject == fruit)
+                {
+                    text.SetActive(true);
+                }
+                else
+                {
+                    text.SetActive(false);
+                }
             }
             else
             {
                 text.SetActive(false);
-            }
+            }            
         }
         else
         {

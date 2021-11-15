@@ -24,7 +24,8 @@ public static class _GlobalVariables
     public static bool rightHasObject = false;
     public static GameObject rightObject = null;
     public static GameObject selectedObject = null;
-
+    public static int numObjectsLeft = -1;
+    public static bool gameDone = false;
 
 
     /// <summary>

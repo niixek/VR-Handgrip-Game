@@ -7,12 +7,14 @@ public class Squeezable : MonoBehaviour
     public GameObject destroyedVersion;
     public float strengthRequired;
 
+    /*
     private void OnMouseDown()
     {
         Debug.Log("Clicked");
         Instantiate(destroyedVersion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
+    */
 
     private void Update()
     {
@@ -39,6 +41,7 @@ public class Squeezable : MonoBehaviour
                     if (forces[0] > strengthRequired && forces[1] > strengthRequired)
                     {
                         Instantiate(destroyedVersion, transform.position, transform.rotation);
+                        _GlobalVariables.numObjectsLeft -= 1;
                         Destroy(gameObject);
                         _GlobalVariables.leftHasObject = false;
                         _GlobalVariables.leftObject = null;
@@ -57,6 +60,7 @@ public class Squeezable : MonoBehaviour
                     if (forces[0] > strengthRequired)
                     {
                         Instantiate(destroyedVersion, transform.position, transform.rotation);
+                        _GlobalVariables.numObjectsLeft -= 1;
                         Destroy(gameObject);
                         _GlobalVariables.leftHasObject = false;
                         _GlobalVariables.leftObject = null;
@@ -72,6 +76,7 @@ public class Squeezable : MonoBehaviour
                     if (forces[1] > strengthRequired)
                     {
                         Instantiate(destroyedVersion, transform.position, transform.rotation);
+                        _GlobalVariables.numObjectsLeft -= 1;
                         Destroy(gameObject);
                         _GlobalVariables.rightHasObject = false;
                         _GlobalVariables.rightObject = null;
