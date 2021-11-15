@@ -57,28 +57,40 @@ public class SliderColorChanger : MonoBehaviour
 
     private float getSqueezeMaxValue()
     {
-        if (_GlobalVariables.leftHasObject)
+        if (leftHand)
         {
-            return _GlobalVariables.leftObject.GetComponent<Squeezable>().strengthRequired;
+            if (_GlobalVariables.leftHasObject)
+            {
+                return _GlobalVariables.leftObject.GetComponent<Squeezable>().strengthRequired;
+            }
         }
-        if (_GlobalVariables.rightHasObject)
+        else if (!leftHand)
         {
-            return _GlobalVariables.rightObject.GetComponent<Squeezable>().strengthRequired;
+            if (_GlobalVariables.rightHasObject)
+            {
+                return _GlobalVariables.rightObject.GetComponent<Squeezable>().strengthRequired;
+            }
         }
 
         return 100f;
     }
     private float getSqueezeMinValue()
     {
-        if (_GlobalVariables.leftHasObject)
+        if (leftHand)
         {
-            return _GlobalVariables.leftObject.GetComponent<FruitWeight>().weight;
+            if (_GlobalVariables.leftHasObject)
+            {
+                return _GlobalVariables.leftObject.GetComponent<FruitWeight>().weight;
+            }
         }
-        if (_GlobalVariables.rightHasObject)
+        else if (!leftHand)
         {
-            return _GlobalVariables.rightObject.GetComponent<FruitWeight>().weight;
+            if (_GlobalVariables.rightHasObject)
+            {
+                return _GlobalVariables.rightObject.GetComponent<FruitWeight>().weight;
+            }
         }
-
+        
         return 0f;
     }
 }

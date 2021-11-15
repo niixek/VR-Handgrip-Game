@@ -30,6 +30,7 @@ public class MoveObjectToHand : MonoBehaviour
         */
         //Debug.Log(_GlobalVariables.leftHasObject);
 
+        Debug.Log(_GlobalVariables.rightObject);
         if (selectedObject != null)
         {
             //Debug.Log(selectedObject);
@@ -45,29 +46,49 @@ public class MoveObjectToHand : MonoBehaviour
             */
             if (selectedObject.GetComponent<Handedness>().twoHanded)
             {
-                if (forces[0] >= selectedObject.GetComponent<FruitWeight>().weight && forces[1] >= selectedObject.GetComponent<FruitWeight>().weight)
+                if (!_GlobalVariables.leftHasObject && !_GlobalVariables.rightHasObject)
                 {
-                    _GlobalVariables.leftHasObject = true;
-                    _GlobalVariables.rightHasObject = true;
+                    if (forces[0] >= selectedObject.GetComponent<FruitWeight>().weight && forces[1] >= selectedObject.GetComponent<FruitWeight>().weight)
+                    {
+                        _GlobalVariables.leftHasObject = true;
+                        _GlobalVariables.rightHasObject = true;
 
-                    selectedObject.transform.parent = leftHand.transform;
-                    selectedObject.transform.localPosition = new Vector3(0, -0.15f, 0.15f);
+                        selectedObject.transform.parent = leftHand.transform;
+                        selectedObject.transform.localPosition = new Vector3(0, -0.15f, 0.15f);
 
-                    _GlobalVariables.leftObject = selectedObject;
-                    _GlobalVariables.rightObject = selectedObject;
+                        _GlobalVariables.leftObject = selectedObject;
+                        _GlobalVariables.rightObject = selectedObject;
+                    }
+                }
+                else
+                {
+                    if (_GlobalVariables.leftHasObject)
+                    {
+                        if (forces[0] < _GlobalVariables.leftObject.GetComponent<FruitWeight>().weight)
+                        {
+                            _GlobalVariables.leftObject.transform.parent = null;
+                            _GlobalVariables.leftObject.transform.position = _GlobalVariables.leftObject.GetComponent<PositionHolder>().origPos;
+                            _GlobalVariables.leftObject.transform.rotation = _GlobalVariables.leftObject.GetComponent<PositionHolder>().origRot;
+                            _GlobalVariables.leftHasObject = false;
+                            _GlobalVariables.leftObject = null;
+                        }
+                    }
+                    else if (_GlobalVariables.rightHasObject)
+                    {
+                        if (forces[1] < _GlobalVariables.rightObject.GetComponent<FruitWeight>().weight)
+                        {
+                            _GlobalVariables.rightObject.transform.parent = null;
+                            _GlobalVariables.rightObject.transform.position = _GlobalVariables.rightObject.GetComponent<PositionHolder>().origPos;
+                            _GlobalVariables.rightObject.transform.rotation = _GlobalVariables.rightObject.GetComponent<PositionHolder>().origRot;
+                            _GlobalVariables.rightHasObject = false;
+                            _GlobalVariables.rightObject = null;
+                        }
+                    }
                 }
             }
 
             else if (!_GlobalVariables.leftHasObject && forces[0] >= selectedObject.GetComponent<FruitWeight>().weight)
             {
-                /*
-                if (_GlobalVariables.leftHasObject)
-                {
-                    _GlobalVariables.leftObject.transform.parent = null;
-                    _GlobalVariables.leftObject.transform.position = _GlobalVariables.leftObject.GetComponent<PositionHolder>().origPos;
-                }
-                */
-
                 selectedObject.transform.parent = leftHand.transform;
                 selectedObject.transform.localPosition = new Vector3(0, -0.05f, 0.15f);
                 _GlobalVariables.leftHasObject = true;
@@ -78,14 +99,6 @@ public class MoveObjectToHand : MonoBehaviour
                     _GlobalVariables.rightHasObject = false;
                 }
                 _GlobalVariables.leftObject = selectedObject;
-
-                
-                /*
-                if (_GlobalVariables.rightObject == null && !_GlobalVariables.rightHasObject)
-                {
-                    Debug.Log("Right works");
-                }
-                */
             }
 
             else if (!_GlobalVariables.rightHasObject && forces[1] >= selectedObject.GetComponent<FruitWeight>().weight)
@@ -100,14 +113,6 @@ public class MoveObjectToHand : MonoBehaviour
                     _GlobalVariables.leftHasObject = false;
                 }
                 _GlobalVariables.rightObject = selectedObject;
-
-                /*
-                if (_GlobalVariables.leftObject == null && !_GlobalVariables.leftHasObject)
-                {
-                    Debug.Log("left works");
-                }
-                */
-
             }
             else
             {
