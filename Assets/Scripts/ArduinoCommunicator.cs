@@ -10,7 +10,8 @@ public static class ArduinoCommunicator
     /// Port names to be checked on each platform
     /// </summary>
     private const string macPortName = "/dev/tty.usbmodem1411";
-    private const string winPortName = "COM5";
+    //Change this if needed
+    private const string winPortName = "COM4";
 
     /// <summary>
     /// The serial port object communications are active on
