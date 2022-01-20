@@ -11,11 +11,13 @@ public class DisplayGripValue : MonoBehaviour
     {
         if (leftHand)
         {
-            text.text = _GlobalVariables.leftForce.ToString();
+            int gripval = Mathf.RoundToInt(_GlobalVariables.leftForce);
+            text.text = gripval.ToString();
         }
         else
         {
-            text.text = _GlobalVariables.rightForce.ToString();
+            int gripval = Mathf.RoundToInt(_GlobalVariables.rightForce);
+            text.text = gripval.ToString();
         }
        
     }
