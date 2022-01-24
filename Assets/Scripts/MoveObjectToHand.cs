@@ -30,7 +30,7 @@ public class MoveObjectToHand : MonoBehaviour
         */
         //Debug.Log(_GlobalVariables.leftHasObject);
 
-        Debug.Log(_GlobalVariables.rightObject);
+        //Debug.Log(_GlobalVariables.rightObject);
         if (selectedObject != null)
         {
             //Debug.Log(selectedObject);
